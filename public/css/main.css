@@ -159,3 +159,67 @@ html, body {
     min-height: 100%;
 }
 
+.paintPageHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 1rem 1rem;
+    margin-bottom: 1rem;
+}
+
+.centralizedDivForPaint {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.centralizedDivForPaint > div{
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.paintPageTitle span {
+    border: 1px solid #44444444;
+    padding: 0.1rem 0.4rem;
+    font-size: 1.5rem;
+}
+
+.deleteButton {
+    background-color: #f1f3f43a;
+    padding: 0.5rem 1rem;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    gap: 10px;
+    border-radius: 8px;
+    color: #5f6368;
+    cursor: pointer;
+    border: 1px solid #e84118;
+}
+
+.downloadButton {
+    background-color: #f1f3f43a;
+    padding: 0.5rem 1rem;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    gap: 10px;
+    border-radius: 8px;
+    color: #5f6368;
+    cursor: pointer;
+    border: 1px solid #4cd137;
+}
+
+.shareButton {
+    background-color: #f1f3f43a;
+    padding: 0.5rem 1rem;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    gap: 10px;
+    border-radius: 8px;
+    color: #5f6368;
+    cursor: pointer;
+    border: 1px solid #3498db;
+}

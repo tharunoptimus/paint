@@ -6,14 +6,19 @@ block styles
 block content
     .paintPageWrapper
         .paintPageHeader
-            .deleteButton 
-                span Delete
+            .centralizedDivForPaint
+                .deleteButton 
+                    span Delete
+                    img(src="/svgs/delete.svg", alt="Delete")
             .paintPageTitle
                 span #{pageTitle}
-            .downloadButton
-                span Download
-            .shareButton
-                span Share
+            .centralizedDivForPaint
+                .downloadButton
+                    span Download
+                    img(src="/svgs/download.svg", alt="Download")
+                .shareButton
+                    span Share
+                    img(src="/svgs/share.svg", alt="Share")
         
         .paintPageContent
             div#sketch
@@ -22,16 +27,16 @@ block content
         .paintTools 
             .settings.colors
                 | Colours
-                button#blue Blue
-                button#red Red
-                button#green Green
-                button#white Eraser
+                button#blue 
+                button#red 
+                button#green 
+                button#white 
             .settings.size
                 | Brush Size
-                button#2 Small
-                button#5 Med
-                button#10 Large
-                button#20 Large
+                button#2 
+                button#5 
+                button#10 
+                button#20 
 
             
 
