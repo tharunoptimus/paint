@@ -1,7 +1,7 @@
 {
   "name": "paint",
   "version": "1.0.0",
-  "description": "",
+  "description": "Shareable Paint App",
   "main": "app.js",
   "scripts": {
     "start": "node app.js"
@@ -9,6 +9,10 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tharunoptimus/paint.git"
+  },
   "dependencies": {
     "bcrypt": "^5.0.1",
     "dotenv": "^10.0.0",
