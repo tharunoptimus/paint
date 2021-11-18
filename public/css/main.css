@@ -73,7 +73,7 @@ html, body {
 
 .createNewPaintContainer {
     background-color: #f1f3f4;
-    
+    padding: 0.5rem 1rem;
 }
 
 .createNewPaintHolder {
@@ -118,4 +118,33 @@ html, body {
     cursor: pointer;
     width: 150px;
     height: 118px;
+}
+
+.recentPaintsContainer {
+    background-color: #ffffff;
+}
+.recentPaintsHolder {
+    width: 700px;
+}
+.recentPaints {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.paintContainer {
+    display: flex;
+    flex-direction: column;
+    width: 220px;
+}
+
+.paintContainer img {
+    height: 160px;
+    background: #ffffff;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+}
+
+.paintContainer span {
+    margin-top: 0.4em;
 }
