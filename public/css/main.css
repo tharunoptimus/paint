@@ -94,7 +94,8 @@ html, body {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: flex-start;
+    gap: 20px;
 }
 
 .templateBox {
@@ -111,6 +112,10 @@ html, body {
 }
 
 .templateBox img {
+    background: #ffffff;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    cursor: pointer;
     width: 150px;
     height: 118px;
 }
