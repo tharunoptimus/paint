@@ -32,6 +32,8 @@ html, body {
     position: -webkit-sticky;
     top: 0;
     padding: 0.5rem 1rem;
+    background-color: #ffffff;
+    z-index: 3;
 }
 
 .leftContent {
@@ -59,6 +61,7 @@ html, body {
     display: flex;
     align-items: center;
     height: 40px;
+    padding-right: 1rem;
 }
 
 .profilePhotoContainer {
