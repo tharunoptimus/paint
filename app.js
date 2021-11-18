@@ -9,6 +9,9 @@ app.listen(port, () =>
 	console.log("Server Listening on " + port)
 )
 
+app.set("view engine", "pug");
+app.set("views", "views");
+
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
