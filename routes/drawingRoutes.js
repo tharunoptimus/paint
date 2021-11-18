@@ -27,4 +27,19 @@ router.get("/:id", async (req, res) => {
 	return res.status(200).render("paint", payload)
 })
 
+router.post("/create", async (req, res, next) => {
+
+    
+    if(!req.session.user) return res.redirect("/");
+
+    let newPaint = {
+        title: "Untitled Paint",
+        belongsTo: req.session.user._id,
+    }
+
+    let paint = await Paint.create(newPaint)
+    return res.redirect(`/paint/${paint._id}`)
+
+})
+
 module.exports = router
