@@ -14,11 +14,18 @@ block content
                     img(src=userLoggedIn.profilePic, alt="Profile", title="Profile")
 
         .createNewPaintContainer
-            span Start a new Paint
-            .templateContainer 
-                .templateBox
-                    img(src="/images/blankPaint.png", alt="Blank Paint", title="Blank Paint")
-                    span Blank Paint
+            .createNewPaintHolder
+                span Start a new Paint
+                .templateContainer 
+                    .templateBox
+                        img(src="/images/blankPaint.png", alt="Blank Paint", title="Blank Paint")
+                        span Blank Paint
+                    .templateBox
+                        img(src="/images/blankPaint.png", alt="Blank Paint", title="Blank Paint")
+                        span Borders
+                    .templateBox
+                        img(src="/images/cat.png", alt="Blank Paint", title="Blank Paint")
+                        span Cat
 
 block scripts 
     script(src="/js/home.js")

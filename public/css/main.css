@@ -26,6 +26,7 @@ html, body {
 .homeTitleContainer {
     display: flex;
     align-items: center;
+    gap: 10px;
     justify-content: space-between;
     position: sticky;
     position: -webkit-sticky;
@@ -68,4 +69,48 @@ html, body {
 .profilePhotoContainer img {
     border: 1px solid #44444444;
     border-radius: 50%;
+}
+
+.createNewPaintContainer {
+    background-color: #f1f3f4;
+    
+}
+
+.createNewPaintHolder {
+    padding: 0.5rem 1rem;
+    margin: 0 auto;
+    position: relative;
+    width: 685px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.createNewPaintHolder span {
+    padding-bottom: 0.5rem;
+}
+
+.templateContainer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.templateBox {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: #202124;
+    font-weight: 500;
+    font-size: 0.875rem;
+}
+
+.templateBox span {
+    padding-left: 5px;
+}
+
+.templateBox img {
+    width: 150px;
+    height: 118px;
 }
