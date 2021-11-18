@@ -29,9 +29,11 @@ app.use(session({
 // Routes
 const loginRoute = require("./routes/loginRoutes")
 const registerRoute = require("./routes/registerRoutes")
+const paintRoute = require("./routes/paintRoutes")
 
 app.use("/login", loginRoute)
 app.use("/register", registerRoute)
+app.use("/paint", paintRoute)
 
 app.get("/", middleware.requireLogin, (req, res, next) => {
     let payload = {
