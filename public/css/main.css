@@ -1,0 +1,12 @@
+@font-face {
+    font-family: "sans";
+    src: url(/css/sans.ttf);
+    font-weight: 500;
+    font-display: swap;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: "sans", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
