@@ -4,6 +4,7 @@ const app = express()
 const port = process.env.PORT || 3003
 const middleware = require("./middleware")
 const mongoose = require("./database")
+const session = require("express-session")
 
 app.listen(port, () =>
 	console.log("Server Listening on " + port)
@@ -14,6 +15,12 @@ app.set("views", "views");
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
+
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: true,
+    saveUninitialized: false
+}))
 
 
 // Routes
