@@ -19,6 +19,8 @@ router.get("/:id", async (req, res) => {
 	let payload = {
 		pageTitle: paint.title,
 		paint: JSON.stringify(paint),
+		userLoggedIn: req.session.user,
+        userLoggedInJs: JSON.stringify(req.session.user),
 	}
 
 	return res.status(200).render("paint", payload)

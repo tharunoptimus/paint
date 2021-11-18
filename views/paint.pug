@@ -1,16 +1,40 @@
 extends layouts/main-layout.pug
+
+block styles
+    link(rel="stylesheet", href="/css/paint.css")
+
 block content
     .paintPageWrapper
         .paintPageHeader
             .deleteButton 
                 span Delete
             .paintPageTitle
-                span Paint
+                span #{pageTitle}
             .downloadButton
                 span Download
             .shareButton
                 span Share
+        
+        .paintPageContent
+            div#sketch
+                canvas#paint
+
+        .paintTools 
+            .settings.colors
+                | Colours
+                button#blue Blue
+                button#red Red
+                button#green Green
+                button#white Eraser
+            .settings.size
+                | Brush Size
+                button#2 Small
+                button#5 Med
+                button#10 Large
+                button#20 Large
+
             
 
 block scripts 
+    script(src="https://cdn.jsdelivr.net/npm/canvas2svg@1.0.16/canvas2svg.min.js")
     script(src="/js/paint.js")

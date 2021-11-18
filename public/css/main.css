@@ -151,3 +151,11 @@ html, body {
 .paintContainer span {
     margin-top: 0.4em;
 }
+
+
+/* Paint Page */
+
+.paintPageWrapper {
+    min-height: 100%;
+}
+
