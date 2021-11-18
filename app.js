@@ -13,6 +13,18 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
 
-app.get("/", (req, res) => {
+// Routes
+const loginRoute = require("./routes/loginRoutes")
+const registerRoute = require("./routes/registerRoutes")
+
+app.use("/login", loginRoute)
+app.use("/register", registerRoute)
+
+app.get("/", middleware.requireLogin, (req, res, next) => {
+    let payload = {
+        pageTitle: "Home",
+        userLoggedIn: req.session.user,
+        userLoggedInJs: JSON.stringify(req.session.user),
+    }
     res.status(200).send("This is the home Page")
 })
