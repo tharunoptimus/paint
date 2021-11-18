@@ -2,8 +2,9 @@ require("dotenv").config()
 const express = require("express")
 const app = express()
 const port = process.env.PORT || 3003
+const mongoose = require("./database")
 
-const server = app.listen(port, () =>
+app.listen(port, () =>
 	console.log("Server Listening on " + port)
 )
 
