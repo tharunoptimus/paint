@@ -1,6 +1,24 @@
 extends layouts/main-layout.pug
 block content
-    span This is the home page
+    .homeContainer
+        .homeTitleContainer
+            .leftContent
+                .hamburgerMenuHolder
+                    img(src="/svgs/hamburger.svg", alt="Menu", title="Menu")
+                .logoContainer
+                    img(src="/images/logo.png", alt="Logo", title="Logo", height="40px", width="40px")
+                .logoText
+                    span Paint
+            .rightContent
+                .profilePhotoContainer
+                    img(src=userLoggedIn.profilePic, alt="Profile", title="Profile")
+
+        .createNewPaintContainer
+            span Start a new Paint
+            .templateContainer 
+                .templateBox
+                    img(src="/images/blankPaint.png", alt="Blank Paint", title="Blank Paint")
+                    span Blank Paint
 
 block scripts 
     script(src="/js/home.js")

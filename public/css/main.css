@@ -10,3 +10,62 @@ html, body {
     margin: 0;
     font-family: "sans", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
+
+.wrapper {
+    min-height: 100%;
+}
+
+/* Home Page */
+
+.homeContainer {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.homeTitleContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    padding: 0.5rem 1rem;
+}
+
+.leftContent {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 1.5rem;
+    color: #5f6368;
+}
+
+.hamburgerMenuHolder {
+    margin: 0 4px;
+    padding: 12px;
+}
+
+.logoContainer {
+    padding-right: 4px;
+}
+
+.logoText {
+    padding-left: 4px;
+}
+
+.rightContent {
+    display: flex;
+    align-items: center;
+    height: 40px;
+}
+
+.profilePhotoContainer {
+    height: 40px;
+    width: 40px;
+}
+
+.profilePhotoContainer img {
+    border: 1px solid #44444444;
+    border-radius: 50%;
+}
