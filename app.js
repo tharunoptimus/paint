@@ -2,6 +2,7 @@ require("dotenv").config()
 const express = require("express")
 const app = express()
 const port = process.env.PORT || 3003
+const path = require('path')
 const middleware = require("./middleware")
 const mongoose = require("./database")
 const session = require("express-session")
@@ -15,6 +16,8 @@ app.set("views", "views");
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
+
+app.use(express.static(path.join(__dirname, "public")));
 
 app.use(session({
     secret: process.env.SESSION_SECRET,
