@@ -31,24 +31,12 @@ block content
             .createNewPaintHolder.recentPaintsHolder
                 span Recent Paints
                 .recentPaints
-                    .paintContainer
-                        img(src="/images/loadingSkeleton.gif", alt="Paint")
-                        span Loading...
-                    .paintContainer
-                        img(src="/images/loadingSkeleton.gif", alt="Paint")
-                        span Loading...
-                    .paintContainer
-                        img(src="/images/loadingSkeleton.gif", alt="Paint")
-                        span Loading...
-                    .paintContainer
-                        img(src="/images/loadingSkeleton.gif", alt="Paint")
-                        span Loading...
-                    .paintContainer
-                        img(src="/images/loadingSkeleton.gif", alt="Paint")
-                        span Loading...
-                    .paintContainer
-                        img(src="/images/loadingSkeleton.gif", alt="Paint")
-                        span Loading...
+                    - var paints = paints
+                    while paints > 0
+                        .paintContainer
+                            img(src="/images/loadingSkeleton.gif", alt="Paint")
+                            span Loading...
+                        - paints--
 
 
 
