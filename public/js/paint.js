@@ -91,15 +91,20 @@ size.addEventListener("mouseup", function () {
 	}
 })
 
+function getPaintIdFromUrl() {
+	let pathString = window.location.pathname
+	let substrPath = 7
+	return pathString.substring(substrPath)
+
+}
+
 let paintTitleSpan = document.getElementById("paintTitle")
 paintTitleSpan.addEventListener("click", async e => {
 	let existingTitle = e.target.innerText
 	let title = prompt("Enter Title", existingTitle)
 
-	let pathString = window.location.pathname
-	let substrPath = 7
+	let paintId = getPaintIdFromUrl()
 
-	let paintId = pathString.substring(substrPath)
 	let userId = userLoggedIn._id
 
 	let request = await fetch("/api/paint/edit/title" , {
@@ -116,4 +121,21 @@ paintTitleSpan.addEventListener("click", async e => {
 	if(request.status !== 204) return alert("Unable to Change Name. Please Try again!")
 	e.target.innerText = title
 
+})
+
+let deleteButton = document.querySelector(".deleteButton")
+deleteButton.addEventListener("click", async e => {
+	let paintId = getPaintIdFromUrl()
+	let request = await fetch("/api/paint/delete", {
+		method: "DELETE",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body : JSON.stringify({
+			paintId
+		})
+	})
+
+	if(request.status !== 204) return alert("Could not delete paint!")
+	window.location.reload()
 })
