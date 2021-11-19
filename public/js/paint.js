@@ -189,3 +189,24 @@ function downloadCanvas(){
 	this.download = `${pageTitle}.png`
 	this.href = dt;
 }
+
+let shareButton = document.querySelector(".shareButton")
+shareButton.addEventListener("click", async (e) => {
+	let title = document.querySelector("#paintTitle").innerText
+	let url = window.location.href
+	shareLink(title, url)
+})
+
+function shareLink(title, url) {
+	if (navigator.share) {
+		navigator
+			.share({
+				title: `${title}`,
+				text: "See my new Paint!",
+				url: url,
+			})
+			.catch(() =>
+				alert("Unable to Generate Link. Copy the URL and share it!")
+			)
+	}
+}
