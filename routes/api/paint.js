@@ -52,7 +52,7 @@ router.delete("/delete", async (req, res) => {
     let user = await User.findById(userId)
     if(user == null) return res.redirect("/")
     if(!user.paints.includes(paintId)) return res.status(401).send("You're not authorized to Delete this paint!")
-
+    
     try {
         await Paint.findByIdAndDelete(paintId).catch(err => console.log(err))
         await User.findByIdAndUpdate(userId, { $pull : { paints: paintId }})
@@ -60,6 +60,23 @@ router.delete("/delete", async (req, res) => {
     } catch (err) {
         console.log(err)
         res.sendStatus(400)
+    }
+})
+
+router.put("/save", async (req, res) => {
+    let { paintId, data } = req.body
+    let userId = req.session.user._id
+    
+    let user = await User.findById(userId)
+    if(user == null) return res.redirect("/")
+    if(!user.paints.includes(paintId)) return res.status(401).send("You're not authorized to Delete this paint!")
+
+    try {
+        let paint = await Paint.findByIdAndUpdate(id, { data: data })
+        res.sendStatus(400)
+    } catch (error) {
+        console.log(error)
+        res.sendStatus(500)
     }
 })
 
