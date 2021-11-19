@@ -79,4 +79,12 @@ router.put("/save", async (req, res) => {
 	}
 })
 
+router.get("/preview/paints", async (req, res) => {
+    if(!req.session.user) return res.status(401).send("You are not logged in")
+    let userId = req.session.user._id
+    let user = await User.findById(userId).populate("paints")
+    let paints = user.paints
+    res.status(200).send(paints)
+})
+
 module.exports = router
