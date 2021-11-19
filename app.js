@@ -29,6 +29,7 @@ app.use(session({
 // Routes
 const loginRoute = require("./routes/loginRoutes")
 const registerRoute = require("./routes/registerRoutes")
+const logoutRoute = require("./routes/logoutRoutes")
 const paintRoute = require("./routes/paintRoutes")
 
 
@@ -38,6 +39,7 @@ const paintApi = require("./routes/api/paint")
 
 app.use("/login", loginRoute)
 app.use("/register", registerRoute)
+app.use("/logout", logoutRoute)
 app.use("/paint", paintRoute)
 
 app.use("/api/paint", paintApi)
