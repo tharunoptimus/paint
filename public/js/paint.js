@@ -23,7 +23,7 @@ canvas.addEventListener(
 ctx.lineJoin = "round"
 ctx.lineCap = "round"
 
-ctx.strokeStyle = "red"
+ctx.strokeStyle = "#000000"
 function getColor(colour) {
 	ctx.strokeStyle = colour
 }
