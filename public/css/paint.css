@@ -8,6 +8,25 @@
 	display: block;
 }
 
+.paintTools {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    padding-top: 0.5rem;
+}
+
+.tools {
+    display: flex;
+    flex-direction: row;
+    padding: 0.8rem 1.5rem;
+    border: 1px solid #44444444;
+    box-shadow: 0 0 4px 1px #44444444;
+    border-radius: 8px;
+    max-width: fit-content;
+    gap: 20px;
+    z-index: 2;
+}
+
 .settings {
     display: flex;
     gap: 10px;
@@ -15,25 +34,74 @@
 
 .settings > button {
     padding: 0px 9px;
+    border-radius: 50%;
 }
 
-#blue {
-    background-color: blue;
-    border: 1px solid blue;
+#C0069bf {
+    background-color: #0069bf;
+    border: 1px solid #0069bf;
 }
 
-#red {
-    background-color: red;
-    border: 1px solid red;
+#Ce71224 {
+    background-color: #e71224;
+    border: 1px solid #e71224;
 }
 
-#green {
+#C7ec400 {
+	background-color: #7ec400;
+	border: 1px solid #7ec400;
+}
+
+#C3eccfd {
+    background-color: #3eccfd;
+    border: 1px solid #3eccfd;
+}
+
+#Cfed430 {
+    background-color: #fed430;
+    border: 1px solid #fed430;
+}
+
+#Cfbae17 {
+    background-color: #fbae17;
+    border: 1px solid #fbae17;
+}
+
+#Cf36323 {
+	background-color: #f36323;
+	border: 1px solid #f36323;
+}
+#C5b318d {
+    background-color: #5b318d;
+    border: 1px solid #5b318d;
+}
+
+#C914bb8 {
+    background-color: #914bb8;
+    border: 1px solid #914bb8;
+}
+
+#Ccf1278 {
+	background-color: #cf1278;
+	border: 1px solid #cf1278;
+}
+#Cc10051 {
+    background-color: #c10051;
+    border: 1px solid #c10051;
+}
+
+#C02a556 {
+    background-color: #02a556;
+    border: 1px solid #02a556;
+}
+
+#Cgreen {
 	background-color: green;
 	border: 1px solid green;
 }
 
-#white {
-	background-color: white;
+#Cffffff {
+	background-color: #ffffff;
 	border: 1px solid #444444ab;
 }
 

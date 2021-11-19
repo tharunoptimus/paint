@@ -59,8 +59,18 @@ var onPaint = function () {
 	ctx.stroke()
 }
 
+function removeTransformOnButton () {
+	let buttons = document.querySelectorAll(".colors button")
+	buttons.forEach(button => {
+		button.style.removeProperty("transform")
+	})
+}
 
-
+function makeButtonBigger (id) {
+	let button = document.getElementById(id)
+	console.log({button, id})
+	button.style.transform  = "scale(1.4)"
+}
 
 
 
@@ -69,14 +79,17 @@ let size = document.querySelector("#brushSize")
 
 colors.addEventListener("click", function (e) {
 	if (e.target.tagName === "BUTTON") {
-		let id = e.target.id
-		getColor(id)
+		removeTransformOnButton()
+		let hex = e.target.id
+		makeButtonBigger(hex)
+		hex = hex.substring(1)
+		hex = '#' + hex
+		getColor(hex)
 	}
 })
 
 size.addEventListener('mouseup', function() {
     if (this.value > 0 && this.value < 20) {
         getSize(this.value)
-		console.log("Called getSize")
 	}
 })
