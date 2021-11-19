@@ -1,0 +1,17 @@
+{
+    "short_name": "Paint",
+    "name": "Paint",
+    "description": "Shareable Paint",
+    "icons": [
+      {
+        "src": "logo.png",
+        "type": "image/png",
+        "sizes": "512x512",
+        "purpose": "any maskable"
+      }
+    ],
+    "start_url": "/",
+    "background_color": "#FFFFFF",
+    "display": "standalone",
+    "theme_color": "#FFFFFF"
+  }
