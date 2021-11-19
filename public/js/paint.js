@@ -1,13 +1,13 @@
-var canvas = document.getElementById("paint")
-var ctx = canvas.getContext("2d")
+let canvas = document.getElementById("paint")
+let ctx = canvas.getContext("2d")
 
-var sketch = document.getElementById("sketch")
-var sketch_style = getComputedStyle(sketch)
+let sketch = document.getElementById("sketch")
+let sketch_style = getComputedStyle(sketch)
 
 canvas.width = 800
 canvas.height = 589
 
-var mouse = { x: 0, y: 0 }
+let mouse = { x: 0, y: 0 }
 
 /* Mouse Capturing Work */
 canvas.addEventListener(
@@ -54,25 +54,23 @@ canvas.addEventListener(
 	false
 )
 
-var onPaint = function () {
+let onPaint = function () {
 	ctx.lineTo(mouse.x, mouse.y)
 	ctx.stroke()
 }
 
-function removeTransformOnButton () {
+function removeTransformOnButton() {
 	let buttons = document.querySelectorAll(".colors button")
-	buttons.forEach(button => {
+	buttons.forEach((button) => {
 		button.style.removeProperty("transform")
 	})
 }
 
-function makeButtonBigger (id) {
+function makeButtonBigger(id) {
 	let button = document.getElementById(id)
-	console.log({button, id})
-	button.style.transform  = "scale(1.4)"
+	console.log({ button, id })
+	button.style.transform = "scale(1.4)"
 }
-
-
 
 let colors = document.querySelector(".colors")
 let size = document.querySelector("#brushSize")
@@ -83,13 +81,18 @@ colors.addEventListener("click", function (e) {
 		let hex = e.target.id
 		makeButtonBigger(hex)
 		hex = hex.substring(1)
-		hex = '#' + hex
+		hex = "#" + hex
 		getColor(hex)
 	}
 })
 
-size.addEventListener('mouseup', function() {
-    if (this.value > 0 && this.value < 20) {
-        getSize(this.value)
+size.addEventListener("mouseup", function () {
+	if (this.value > 0 && this.value < 20) {
+		getSize(this.value)
 	}
+})
+
+let paintTitleSpan = document.getElementById("paintTitle")
+paintTitleSpan.addEventListener("click", e => {
+	
 })
