@@ -49,6 +49,10 @@ router.delete("/delete", async (req, res) => {
     let { paintId } = req.body
     let userId = req.session.user._id
 
+    let user = await User.findById(userId)
+    if(user == null) return res.redirect("/")
+    if(!user.paints.includes(paintId)) return res.status(401).send("You're not authorized to Delete this paint!")
+
     try {
         await Paint.findByIdAndDelete(paintId).catch(err => console.log(err))
         await User.findByIdAndUpdate(userId, { $pull : { paints: paintId }})
