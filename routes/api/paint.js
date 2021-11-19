@@ -45,4 +45,18 @@ router.post("/edit/save", async (req, res) => {
     }
 })
 
+router.delete("/delete", async (req, res) => {
+    let { paintId } = req.body
+    let userId = req.session.user._id
+
+    try {
+        await Paint.findByIdAndDelete(paintId).catch(err => console.log(err))
+        await User.findByIdAndUpdate(userId, { $pull : { paints: paintId }})
+        return res.sendStatus(204)
+    } catch (err) {
+        console.log(err)
+        res.sendStatus(400)
+    }
+})
+
 module.exports = router;
