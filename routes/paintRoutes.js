@@ -42,7 +42,10 @@ router.get("/new/create", async (req, res, next) => {
 		}
 
 		let paint = await Paint.create(newPaint)
-		return res.redirect(`/paint/${paint._id}`)
+
+		res.redirect(`/paint/${paint._id}`)
+
+		await User.findByIdAndUpdate(req.session.user._id, { $addToSet: { paints: paint._id } })
 	} 
 	catch (error) {
 		console.log(error)
