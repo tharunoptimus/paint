@@ -31,9 +31,16 @@ const loginRoute = require("./routes/loginRoutes")
 const registerRoute = require("./routes/registerRoutes")
 const paintRoute = require("./routes/paintRoutes")
 
+
+// API Routes
+
+const paintApi = require("./routes/api/paint")
+
 app.use("/login", loginRoute)
 app.use("/register", registerRoute)
 app.use("/paint", paintRoute)
+
+app.use("/api/paint", paintApi)
 
 app.get("/", middleware.requireLogin, (req, res, next) => {
     let payload = {
