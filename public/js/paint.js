@@ -68,7 +68,6 @@ function removeTransformOnButton() {
 
 function makeButtonBigger(id) {
 	let button = document.getElementById(id)
-	console.log({ button, id })
 	button.style.transform = "scale(1.4)"
 }
 
@@ -87,12 +86,34 @@ colors.addEventListener("click", function (e) {
 })
 
 size.addEventListener("mouseup", function () {
-	if (this.value > 0 && this.value < 20) {
+	if (this.value > 0 && this.value <= 20) {
 		getSize(this.value)
 	}
 })
 
 let paintTitleSpan = document.getElementById("paintTitle")
-paintTitleSpan.addEventListener("click", e => {
-	
+paintTitleSpan.addEventListener("click", async e => {
+	let existingTitle = e.target.innerText
+	let title = prompt("Enter Title", existingTitle)
+
+	let pathString = window.location.pathname
+	let substrPath = 7
+
+	let paintId = pathString.substring(substrPath)
+	let userId = userLoggedIn._id
+
+	let request = await fetch("/api/paint/edit/title" , {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body : JSON.stringify({
+			paintId,
+			title,
+			userId
+		})
+	})
+	if(request.status !== 204) return alert("Unable to Change Name. Please Try again!")
+	e.target.innerText = title
+
 })
