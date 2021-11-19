@@ -72,8 +72,8 @@ router.put("/save", async (req, res) => {
     if(!user.paints.includes(paintId)) return res.status(401).send("You're not authorized to Delete this paint!")
 
     try {
-        let paint = await Paint.findByIdAndUpdate(id, { data: data })
-        res.sendStatus(400)
+        let paint = await Paint.findByIdAndUpdate(paintId, { data: data })
+        res.sendStatus(204)
     } catch (error) {
         console.log(error)
         res.sendStatus(500)

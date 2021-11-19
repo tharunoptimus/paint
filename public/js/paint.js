@@ -135,7 +135,32 @@ deleteButton.addEventListener("click", async e => {
 			paintId
 		})
 	})
-
+	
 	if(request.status !== 204) return alert("Could not delete paint!")
 	window.location.reload()
 })
+
+let intervalId = setInterval( () => {savePaint()} , 10000)
+let shouldStopBroadcasting = false
+
+async function savePaint() {
+	let paintId = getPaintIdFromUrl()
+	
+	let virtualContext = new C2S(800, 589)
+	virtualContext.drawImage(canvas, 0, 0)
+	
+	let data = virtualContext.getSvg().toString()
+
+	let request = await fetch("/api/paint/save", {
+		method: "PUT",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body : JSON.stringify({ paintId, data })
+	})
+	if(!request.status == 204 && !shouldStopBroadcasting) {
+		alert("Couldn't auto save. Check your Internet connection or Click on 'Save' Manually")
+		return shouldStopBroadcasting = true
+	}
+
+}
