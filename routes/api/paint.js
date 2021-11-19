@@ -25,5 +25,19 @@ router.post("/edit/title", async (req, res) => {
     
 })
 
+router.post("/edit/save", async (req, res) => {
+    let { paintId, data, userId } = req.params
+    
+    let user = await User.findById(user)
+    if(!user.paints.includes(paintId)) return res.status(401).send("You are not authorized to edit this")
+
+    try {
+        let paint = await Paint.findByIdAndUpdate( paintId, { data: data })
+        return res.sendStatus(204)
+    } catch (err) {
+        console.log(err)
+        res.status(400).send("Something went wrong")
+    }
+})
 
 module.exports = router;
