@@ -15,9 +15,9 @@ block content
             .paintPageTitle
                 span#paintTitle #{pageTitle}
             .centralizedDivForPaint
-                .downloadButton
-                    span Download
-                    img(src="/svgs/download.svg", alt="Download")
+                a.downloadButton(download="paint.png", href="#")
+                        span Download
+                        img(src="/svgs/download.svg", alt="Download")
                 .shareButton
                     span Share
                     img(src="/svgs/share.svg", alt="Share")

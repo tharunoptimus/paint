@@ -212,6 +212,8 @@ html, body {
     color: #5f6368;
     cursor: pointer;
     border: 1px solid #4cd137;
+    text-decoration: none;
+    align-items: center;
 }
 
 .shareButton {
