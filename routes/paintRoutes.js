@@ -3,6 +3,8 @@ const app = express()
 const router = express.Router()
 const User = require("../schemas/UserSchema")
 const Paint = require("../schemas/PaintSchema")
+let Border = require("./template/borderTemplateData")
+let Cat = require("./template/catTemplateData")
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
@@ -58,6 +60,62 @@ router.get("/new/create", async (req, res, next) => {
 		let newPaint = {
 			title: "Untitled Paint",
 			belongsTo: req.session.user._id,
+		}
+
+		let paint = await Paint.create(newPaint)
+
+		res.redirect(`/paint/${paint._id}`)
+
+		await User.findByIdAndUpdate(req.session.user._id, { $addToSet: { paints: paint._id } })
+	} 
+	catch (error) {
+		console.log(error)
+	}
+
+})
+
+router.get("/new/create/border", async (req, res, next) => {
+
+    
+    try {
+		if(!req.session.user._id) {
+			console.log(req.session.user)
+			return res.redirect("/")
+		}
+
+
+		let newPaint = {
+			title: "Paint with Borders",
+			belongsTo: req.session.user._id,
+			data: Border
+		}
+
+		let paint = await Paint.create(newPaint)
+
+		res.redirect(`/paint/${paint._id}`)
+
+		await User.findByIdAndUpdate(req.session.user._id, { $addToSet: { paints: paint._id } })
+	} 
+	catch (error) {
+		console.log(error)
+	}
+
+})
+
+router.get("/new/create/cat", async (req, res, next) => {
+
+    
+    try {
+		if(!req.session.user._id) {
+			console.log(req.session.user)
+			return res.redirect("/")
+		}
+
+
+		let newPaint = {
+			title: "Paint with Cute Cat",
+			belongsTo: req.session.user._id,
+			data: Cat
 		}
 
 		let paint = await Paint.create(newPaint)
