@@ -37,7 +37,7 @@ function getSize(size) {
 
 canvas.addEventListener(
 	"mousedown",
-	function (e) {
+	(e) => {
 		ctx.beginPath()
 		ctx.moveTo(mouse.x, mouse.y)
 
@@ -48,8 +48,9 @@ canvas.addEventListener(
 
 canvas.addEventListener(
 	"mouseup",
-	function () {
+	() => {
 		canvas.removeEventListener("mousemove", onPaint, false)
+		savePaint()
 	},
 	false
 )
@@ -57,6 +58,15 @@ canvas.addEventListener(
 let onPaint = function () {
 	ctx.lineTo(mouse.x, mouse.y)
 	ctx.stroke()
+}
+
+// This part will render the image thing in the canvas - very important 
+// Couldn't find a way to refactor yet
+let imageDataUrl = paintData
+var image = new Image()
+image.src = imageDataUrl
+image.onload = function () {
+	ctx.drawImage(image, 0, 0)
 }
 
 function removeTransformOnButton() {
@@ -95,11 +105,10 @@ function getPaintIdFromUrl() {
 	let pathString = window.location.pathname
 	let substrPath = 7
 	return pathString.substring(substrPath)
-
 }
 
 let paintTitleSpan = document.getElementById("paintTitle")
-paintTitleSpan.addEventListener("click", async e => {
+paintTitleSpan.addEventListener("click", async (e) => {
 	let existingTitle = e.target.innerText
 	let title = prompt("Enter Title", existingTitle)
 
@@ -107,60 +116,54 @@ paintTitleSpan.addEventListener("click", async e => {
 
 	let userId = userLoggedIn._id
 
-	let request = await fetch("/api/paint/edit/title" , {
+	let request = await fetch("/api/paint/edit/title", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
 		},
-		body : JSON.stringify({
+		body: JSON.stringify({
 			paintId,
 			title,
-			userId
-		})
+			userId,
+		}),
 	})
-	if(request.status !== 204) return alert("Unable to Change Name. Please Try again!")
+	if (request.status !== 204)
+		return alert("Unable to Change Name. Please Try again!")
 	e.target.innerText = title
-
 })
 
 let deleteButton = document.querySelector(".deleteButton")
-deleteButton.addEventListener("click", async e => {
+deleteButton.addEventListener("click", async (e) => {
 	let paintId = getPaintIdFromUrl()
 	let request = await fetch("/api/paint/delete", {
 		method: "DELETE",
 		headers: {
 			"Content-Type": "application/json",
 		},
-		body : JSON.stringify({
-			paintId
-		})
+		body: JSON.stringify({
+			paintId,
+		}),
 	})
-	
-	if(request.status !== 204) return alert("Could not delete paint!")
+
+	if (request.status !== 204) return alert("Could not delete paint!")
 	window.location.reload()
 })
 
-let intervalId = setInterval( () => {savePaint()} , 10000)
-let shouldStopBroadcasting = false
-
 async function savePaint() {
 	let paintId = getPaintIdFromUrl()
-	
-	let virtualContext = new C2S(800, 589)
-	virtualContext.drawImage(canvas, 0, 0)
-	
-	let data = virtualContext.getSvg().toString()
+
+	let data = canvas.toDataURL("image/png")
 
 	let request = await fetch("/api/paint/save", {
 		method: "PUT",
 		headers: {
 			"Content-Type": "application/json",
 		},
-		body : JSON.stringify({ paintId, data })
+		body: JSON.stringify({ paintId, data }),
 	})
-	if(!request.status == 204 && !shouldStopBroadcasting) {
-		alert("Couldn't auto save. Check your Internet connection or Click on 'Save' Manually")
-		return shouldStopBroadcasting = true
+	if (!request.status == 204 && !shouldStopBroadcasting) {
+		return alert(
+			"Couldn't auto save. Check your Internet connection or Click on 'Save' Manually"
+		)
 	}
-
 }

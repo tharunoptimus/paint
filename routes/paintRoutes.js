@@ -20,6 +20,7 @@ router.get("/:id", async (req, res) => {
 		pageTitle: paint.title,
 		paint: JSON.stringify(paint),
 		userLoggedIn: req.session.user,
+		paintData: JSON.stringify(paint.data),
         userLoggedInJs: JSON.stringify(req.session.user),
 	}
 
