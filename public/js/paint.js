@@ -65,7 +65,7 @@ var onPaint = function () {
 
 
 let colors = document.querySelector(".colors")
-let size = document.querySelector(".size")
+let size = document.querySelector("#brushSize")
 
 colors.addEventListener("click", function (e) {
 	if (e.target.tagName === "BUTTON") {
@@ -74,9 +74,9 @@ colors.addEventListener("click", function (e) {
 	}
 })
 
-size.addEventListener("click", function (e) {
-	if (e.target.tagName === "BUTTON") {
-		let id = e.target.id
-		getSize(id)
+size.addEventListener('mouseup', function() {
+    if (this.value > 0 && this.value < 20) {
+        getSize(this.value)
+		console.log("Called getSize")
 	}
 })

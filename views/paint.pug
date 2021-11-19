@@ -26,20 +26,16 @@ block content
 
         .paintTools 
             .settings.colors
-                | Colours
-                button#blue 
-                button#red 
-                button#green 
-                button#white 
-            .settings.size
-                | Brush Size
-                button#2 
-                button#5 
-                button#10 
-                button#20 
+                button#blue &#8203; 
+                button#red &#8203;
+                button#green &#8203;
+                button#white
+
+            .settings.size 
+                input#brushSize(type="range", min="1", max="20", value="2", step="1")
 
             
 
 block scripts 
-    script(src="https://cdn.jsdelivr.net/npm/canvas2svg@1.0.16/canvas2svg.min.js")
+    script(src="/js/canvas2svg.min.js")
     script(src="/js/paint.js")
