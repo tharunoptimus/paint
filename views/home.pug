@@ -31,12 +31,13 @@ block content
             .createNewPaintHolder.recentPaintsHolder
                 span Recent Paints
                 .recentPaints
-                    - var paints = paints
-                    while paints > 0
-                        .paintContainer
+
+                    - var values = userLoggedIn.paints;
+
+                    each val in values
+                        .paintContainer(data-url=val)
                             img(src="/images/loadingSkeleton.gif", alt="Paint")
                             span Loading...
-                        - paints--
 
 
 

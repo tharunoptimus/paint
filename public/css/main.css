@@ -139,6 +139,7 @@ html, body {
     display: flex;
     flex-direction: column;
     width: 220px;
+    cursor: pointer;
 }
 
 .paintContainer img {
@@ -146,10 +147,12 @@ html, body {
     background: #ffffff;
     border: 1px solid #dadce0;
     border-radius: 4px;
+    pointer-events: none;
 }
 
 .paintContainer span {
     margin-top: 0.4em;
+    pointer-events: none;
 }
 
 
