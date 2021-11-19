@@ -1,0 +1,24 @@
+extends layouts/main-layout.pug
+
+block styles
+    link(rel="stylesheet", href="/css/paint.css")
+
+block content
+    script.
+        let paintData = !{paintData}
+    .paintPageWrapper
+        .paintPageHeader.viewPageHeader
+            .paintPageTitle.viewPageTitle
+                span#paintTitle #{pageTitle}
+            .centralizedDivForPaint
+                a.downloadButton(download="paint.png", href="#")
+                        span Download
+                        img(src="/svgs/download.svg", alt="Download")
+        
+        .paintPageContent
+            div#sketch
+                img#paint
+            
+
+block scripts 
+    script(src="/js/view.js")
