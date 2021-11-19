@@ -15,16 +15,34 @@ router.get("/:id", async (req, res) => {
 	const { id } = req.params
 	let paint = await Paint.findById(id)
 	if (paint == null) return res.redirect("/")
-
-	let payload = {
+	
+	
+	if(req.session.user) {
+		
+		let isOwner = req.session.user.paints.some(p => p == paint._id)
+		if (isOwner) {
+			
+			let payload = {
+				pageTitle: paint.title,
+				paint: JSON.stringify(paint),
+				userLoggedIn: req.session.user,
+				paintData: JSON.stringify(paint.data),
+				userLoggedInJs: JSON.stringify(req.session.user),
+			}
+			
+			return res.status(200).render("paint", payload)
+		}	
+	}
+	
+	let sharePayload = {
 		pageTitle: paint.title,
 		paint: JSON.stringify(paint),
-		userLoggedIn: req.session.user,
 		paintData: JSON.stringify(paint.data),
-        userLoggedInJs: JSON.stringify(req.session.user),
+		userLoggedIn: "'value'",
+		userLoggedInJs: "'value'",
 	}
+	return res.status(200).render("view", sharePayload)
 
-	return res.status(200).render("paint", payload)
 })
 
 router.get("/new/create", async (req, res, next) => {
