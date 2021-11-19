@@ -3,6 +3,11 @@ createNewPaintDiv.addEventListener("click", (e) => {
 	return (window.location.href = "/paint/new/create")
 })
 
+let logoutButton = document.querySelector(".profilePhotoContainer")
+logoutButton.addEventListener("click", (e) => {
+	return (window.location.href = "/logout")
+})
+
 document.addEventListener("DOMContentLoaded", async () => {
 	await loadAllPaints()
 	addEventListenerToPaintContainer()
