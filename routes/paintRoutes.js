@@ -19,7 +19,7 @@ router.get("/:id", async (req, res) => {
 	
 	if(req.session.user) {
 		
-		let isOwner = req.session.user.paints.some(p => p == paint._id)
+		let isOwner = paint.belongsTo == req.session.user._id
 		if (isOwner) {
 			
 			let payload = {
