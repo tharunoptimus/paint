@@ -1,7 +1,11 @@
 let createNewPaintDiv = document.getElementById("newPaint")
+let createNewWithBordersDiv = document.getElementById("newWithBorders")
+let createNewWithCat = document.getElementById("newWithCat")
 createNewPaintDiv.addEventListener("click", (e) => {
 	return (window.location.href = "/paint/new/create")
 })
+createNewWithBordersDiv.addEventListener("click", (e) => window.location.href = "/paint/new/create/border" )
+createNewWithCat.addEventListener("click", (e) => window.location.href = "/paint/new/create/cat" )
 
 let logoutButton = document.querySelector(".profilePhotoContainer")
 logoutButton.addEventListener("click", (e) => {
