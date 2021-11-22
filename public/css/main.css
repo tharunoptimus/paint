@@ -225,3 +225,16 @@ html, body {
     cursor: pointer;
     border: 1px solid #3498db;
 }
+
+@media (max-width: 30em) {
+    .mobile-dp-none {
+        display: none;
+    }
+    .recentPaints {
+        flex-direction: column;
+        width: max-content;
+    }
+    .recentPaintsHolder {
+        width: max-content;
+    }
+}
