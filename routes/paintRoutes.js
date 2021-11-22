@@ -1,6 +1,7 @@
 const express = require("express")
 const app = express()
 const router = express.Router()
+const useragent = require('express-useragent')
 const User = require("../schemas/UserSchema")
 const Paint = require("../schemas/PaintSchema")
 let Border = require("./template/borderTemplateData")
@@ -8,6 +9,7 @@ let Cat = require("./template/catTemplateData")
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
+app.use(useragent.express())
 
 app.set("view engine", "pug")
 app.set("views", "views")
@@ -22,7 +24,8 @@ router.get("/:id", async (req, res) => {
 	if(req.session.user) {
 		
 		let isOwner = paint.belongsTo == req.session.user._id
-		if (isOwner) {
+		let isDesktop = req.useragent.isDesktop == true 
+		if (isOwner && isDesktop) {
 			
 			let payload = {
 				pageTitle: paint.title,

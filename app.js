@@ -1,6 +1,7 @@
 require("dotenv").config()
 const express = require("express")
 const app = express()
+const useragent = require('express-useragent')
 const port = process.env.PORT || 3003
 const path = require('path')
 const middleware = require("./middleware")
@@ -16,6 +17,7 @@ app.set("views", "views");
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
+app.use(useragent.express())
 
 app.use(express.static(path.join(__dirname, "public")));
 
