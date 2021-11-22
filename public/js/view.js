@@ -3,8 +3,10 @@ let img = document.getElementById("paint")
 img.src = imageDataUrl
 let pageTitle = document.querySelector("#paintTitle").innerText
 
-let downloadButton = document.querySelector(".downloadButton")
-downloadButton.addEventListener("click", downloadImage, false)
+let downloadButtons = document.querySelectorAll(".downloadButton")
+downloadButtons.forEach(button => {
+	button.addEventListener("click", downloadImage, false)
+})
 
 function downloadImage () {
 	let stringToInclude = `data:application/octet-stream;headers=Content-Disposition%3A%20attachment%3B%20filename=${pageTitle}.png`

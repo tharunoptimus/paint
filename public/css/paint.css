@@ -127,3 +127,23 @@
     align-items: center;
     justify-content: center;
 }
+
+.downloadDiv {
+    display: none;
+}
+
+@media (max-width: 30em) {
+    #paint {
+        width: 330px;
+    }
+    .centralizedDivForPaint {
+        display: none;
+    }
+    .downloadDiv {
+        display: block;
+        padding-top: 3rem;
+    }
+    .downloadButton {
+        width: max-content;
+    }
+}
