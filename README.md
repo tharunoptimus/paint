@@ -23,4 +23,6 @@
 
 ## Enjoy 🎉
 - [x] Desktop version done
-- [ ] Mobile version done
+- [x] Mobile version done
+- [ ] Landing Page
+- [x] Hosting
