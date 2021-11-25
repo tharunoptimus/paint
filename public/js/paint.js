@@ -130,6 +130,7 @@ paintTitleSpan.addEventListener("click", async (e) => {
 	if (request.status !== 204)
 		return alert("Unable to Change Name. Please Try again!")
 	e.target.innerText = title
+	document.title = title
 })
 
 let deleteButton = document.querySelector(".deleteButton")
