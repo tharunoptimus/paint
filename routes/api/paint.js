@@ -25,7 +25,7 @@ router.post("/edit/title", async (req, res) => {
 router.post("/edit/save", async (req, res) => {
 	let { paintId, data, userId } = req.body
 
-	let user = await User.findById(user)
+	let user = await User.findById(userId)
 	if (!user.paints.includes(paintId))
 		return res.status(401).send("You are not authorized to edit this")
 
@@ -68,7 +68,7 @@ router.put("/save", async (req, res) => {
 	if (!user.paints.includes(paintId))
 		return res
 			.status(401)
-			.send("You're not authorized to Delete this paint!")
+			.send("You're not authorized to Save this paint!")
 
 	try {
 		let paint = await Paint.findByIdAndUpdate(paintId, { data: data })
