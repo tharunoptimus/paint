@@ -72,4 +72,8 @@
 - [x] Desktop version done
 - [x] Mobile version done
 - [ ] Landing Page
-- [x] Hosting
+- [x] Hosting on Heroku -> [https://newpaint.herokuapp.com/](https://newpaint.herokuapp.com/)
+
+
+## Developers
+- Me [@tharunoptimus](https://tharunoptimus.netlify.app)
