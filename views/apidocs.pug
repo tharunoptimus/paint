@@ -13,18 +13,74 @@ html(lang="en")
             .cardsContainer 
                 .card 
                     .cardHeader 
-                        span.post POST
-                        span.endPoint /api/paint
+                        span.method.get GET
+                        span.endPoint /preview/paints
+                    span.response Response
+                    ul 
+                        li 
+                            code paints array
+                        li 
+                            code 200
+                
+                .card 
+                    .cardHeader 
+                        span.method.post POST
+                        span.endPoint /edit/title
                     span.payload Payload 
                     ul  
                         li 
                             code paintId
                         li 
                             code userId
+                        li 
+                            code title
                     span.response Response
                     ul 
                         li 
-                            code 200
-                        li
-                            span Data
+                            code 204
+                
+                .card 
+                    .cardHeader 
+                        span.method.post POST
+                        span.endPoint /edit/save
+                    span.payload Payload 
+                    ul  
+                        li 
+                            code paintId
+                        li 
+                            code userId
+                        li 
+                            code data
+                    span.response Response
+                    ul 
+                        li 
+                            code 204
+                
+                .card 
+                    .cardHeader 
+                        span.method.put PUT
+                        span.endPoint /save
+                    span.payload Payload 
+                    ul  
+                        li 
+                            code paintId
+                        li 
+                            code data
+                    span.response Response
+                    ul 
+                        li 
+                            code 204
+                
+                .card 
+                    .cardHeader 
+                        span.method.delete DELETE
+                        span.endPoint /delete
+                    span.payload Payload 
+                    ul  
+                        li 
+                            code paintId
+                    span.response Response
+                    ul 
+                        li 
+                            code 204
             

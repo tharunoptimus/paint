@@ -36,9 +36,8 @@ code {
 }
 
 .wrapper {
-    margin: 0 auto;
     margin-top: 5rem;
-    max-width: 800px;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
 }
@@ -53,6 +52,8 @@ code {
     flex-wrap: wrap;
     justify-content: center;
     padding: 1rem;
+    gap: 10px;
+    margin-top: 3rem;
 }
 
 .card {
@@ -66,7 +67,7 @@ code {
 }
 
 .card:hover {
-    transform: scale(1.02);
+    transform: scale(1.05);
     transition: all 0.05s ease-out;
 }
 
@@ -78,16 +79,34 @@ code {
     align-items: center;
 }
 
-.post {
-    border: 1px solid #49cc90;
-    background-color: #49cc90;
+.method {
     border-radius: 3px;
     color: white;
     font-size: 1.2rem;
     padding: 0.2em;
 }
 
-.payload {
+.post {
+    border: 1px solid #49cc90;
+    background-color: #49cc90;
+}
+
+.get {
+    border: 1px solid #f8a130;
+    background-color: #f8a130;
+}
+
+.put {
+    border: 1px solid #61affe;
+    background-color: #61affe;
+}
+
+.delete {
+    border: 1px solid #ff5b5b;
+    background-color: #ff5b5b;
+}
+
+.payload, .response {
     font-size: 1.2rem;
     font-weight: 600;
     margin-top: 0.2rem;
