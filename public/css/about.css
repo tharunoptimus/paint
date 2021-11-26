@@ -45,6 +45,7 @@ html, body {
 .subHeading {
     padding: 1rem;
     padding-bottom: 2rem;
+    text-align: center;
 }
 
 .button {
@@ -73,6 +74,7 @@ html, body {
 .division img {
     width: 700px;
     z-index: 3;
+    aspect-ratio: 1.72;
 }
 
 .boxRotation {
@@ -147,38 +149,33 @@ html, body {
     text-align: justify;
 }
 
+.infoSlideVideo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .infoSlideVideo video {
     width: 400px;
     filter: drop-shadow(2px 4px 6px #44444444);
     border: 0;
     border-radius: 8px;
 }
-
-@media screen and (max-width: 30em) {
+@media screen and (max-width: 1130px) {
+    
     .infoSlide, .infoSlide:nth-child(odd) {
         flex-direction: column;
     }
     
-    .infoSlideText {
-        width: 100%;
-    }
-    
-    .infoSlideVideo video {
-        width: 90%;
-    }
-    
-    .division img {
-        width: 325px;
-    }
-
-    .boxRotation, .circleRotation {
-        display: none;
-    }
-    
     .secondSlide {
-        margin-top: 1rem;
-        width: 100%;
+        width: 80%;
     }
+    .infoSlideVideo video {
+        width: 584px;
+    }
+    .infoSlideText {
+        width: 80%;
+    }  
 }
 
 @media screen and (max-width: 768px) {
@@ -202,21 +199,40 @@ html, body {
     .boxRotation, .circleRotation {
         display: none;
     }
+    .division img {
+        width: 500px;
+        aspect-ratio: 1.72;
+    }
 }
 
-@media screen and (max-width: 1130px) {
-    
+@media screen and (max-width: 30em) {
+    .firstSlide {
+        height: 105vh;
+    }
+
     .infoSlide, .infoSlide:nth-child(odd) {
         flex-direction: column;
     }
     
-    .secondSlide {
-        width: 80%;
-    }
-    .infoSlideVideo video {
-        width: 584px;
-    }
     .infoSlideText {
-        width: 80%;
-    }  
+        width: 100%;
+    }
+    
+    .infoSlideVideo video {
+        width: 90%;
+    }
+    
+    .division img {
+        width: 325px;
+        aspect-ratio: 1.72;
+    }
+
+    .boxRotation, .circleRotation {
+        display: none;
+    }
+    
+    .secondSlide {
+        margin-top: 1rem;
+        width: 100%;
+    }
 }
