@@ -71,6 +71,11 @@ a {
     z-index: 3;
 }
 
+.button:hover {
+    transform: scale(1.05);
+    transition: all 0.02s ease-out;
+}
+
 .division {
     margin-top: 2rem;
 }
