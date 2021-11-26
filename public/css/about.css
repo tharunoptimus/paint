@@ -12,6 +12,10 @@ html, body {
     overflow-x: hidden;
 }
 
+a {
+    text-decoration: none;
+}
+
 .wrapper {
     min-height: 100%;
 }
@@ -161,6 +165,57 @@ html, body {
     border: 0;
     border-radius: 8px;
 }
+
+.thirdSlide {
+    padding: 1rem;
+    background-color: #f2f3f5;
+    color: #414146;
+}
+
+.thirdSlideContainer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 10px;
+    padding: 50px 32px;
+}
+
+.thirdSlideContainer ul {
+    padding-left: 15px;
+    list-style: square;
+    margin: 0.2rem 0;
+}
+
+.thirdSlideContainer li {
+    padding-bottom: 11px;
+}
+
+.thirdSlideContainer a {
+    color: #0070f3;
+    text-decoration: none;
+}
+
+.thirdSlideContainer a:hover {
+    color: #0076ffe6;
+}
+
+.team, .techUsed, .webAPI, .documentation {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding: 1rem;
+}
+
+.team span:nth-child(1), .techUsed span:nth-child(1), .webAPI span:nth-child(1), .documentation span:nth-child(1) {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.team span, .techUsed span, .webAPI span, .documentation span {
+    padding-bottom: 11px;
+}
+
 @media screen and (max-width: 1130px) {
     
     .infoSlide, .infoSlide:nth-child(odd) {
