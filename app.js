@@ -33,6 +33,7 @@ const loginRoute = require("./routes/loginRoutes")
 const registerRoute = require("./routes/registerRoutes")
 const logoutRoute = require("./routes/logoutRoutes")
 const paintRoute = require("./routes/paintRoutes")
+const aboutRoute = require("./routes/aboutRoutes")
 
 
 // API Routes
@@ -43,6 +44,7 @@ app.use("/login", loginRoute)
 app.use("/register", registerRoute)
 app.use("/logout", logoutRoute)
 app.use("/paint", paintRoute)
+app.use("/about", aboutRoute)
 
 app.use("/api/paint", paintApi)
 
