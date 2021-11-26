@@ -1,0 +1,97 @@
+@font-face {
+    font-family: "sans";
+    src: url(/css/sans.ttf);
+    font-weight: 500;
+    font-display: swap;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: "sans", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    overflow-x: hidden;
+}
+
+.wrapper {
+    height: 100%;
+}
+
+.firstSlide {
+    margin-top: 10rem;
+    position: relative;
+    background-color: #FFF;
+    height: 100vh;
+}
+
+.firstSlideContents {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 3;
+}
+
+.headingText {
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    text-align: center;
+    padding: 1rem;
+    z-index: 3;
+}
+
+.subHeading {
+    padding: 1rem;
+    padding-bottom: 2rem;
+}
+
+.button {
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    color: #fff;
+    border: none;
+    border-radius: 32px;
+    cursor: pointer;
+    font-weight: 500;
+    outline: none;
+    padding: 0 24px;
+    -webkit-transition: background-color,color .3s;
+    transition: background-color,color .3s;
+    background-color: #1967d2;
+    -webkit-appearance: button;
+    margin-bottom: 8px;
+    padding: 12px 24px;
+    z-index: 3;
+}
+
+.division {
+    margin-top: 2rem;
+}
+
+.division img {
+    width: 700px;
+    z-index: 3;
+}
+
+.boxRotation {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    animation: rotation 10s infinite linear;
+}
+
+.circleRotation {
+    position: absolute;
+    top: 0;
+    right: 0;
+    animation: rotation 10s infinite linear;
+}
+
+@keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }
