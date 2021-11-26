@@ -21,6 +21,8 @@ html, body {
     position: relative;
     background-color: #FFF;
     height: 100vh;
+    background-image: linear-gradient(0deg, #ecf3fe, #ecf2fe, #eef4ff, #f1f5fe, #f3f7ff, #ffffff);
+    padding-bottom: 3rem;
 }
 
 .firstSlideContents {
@@ -75,16 +77,16 @@ html, body {
 
 .boxRotation {
     position: absolute;
-    bottom: 0;
+    bottom: 40px;
     left: 0;
-    animation: rotation 10s infinite linear;
+    animation: rotation 20s infinite linear;
 }
 
 .circleRotation {
     position: absolute;
     top: 0;
     right: 0;
-    animation: rotation 10s infinite linear;
+    animation: rotation 25s infinite linear;
 }
 
 @keyframes rotation {
@@ -95,3 +97,126 @@ html, body {
       transform: rotate(359deg);
     }
   }
+
+.secondSlide {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    width: clamp(300px, 75vw, 1100px);
+    margin: 5rem auto;
+    position: relative;
+}
+
+.infoSlide {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 60px 10px;
+}
+
+.infoSlide:nth-child(odd) {
+    flex-direction: row-reverse;
+}
+
+.infoSlideText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: clamp(253px, 400px, 600px);
+    padding: 1rem;
+}
+
+.slideTitle {
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    padding: 0.15rem 1rem;
+    z-index: 3;
+}
+
+.slideSubTitle {
+    padding: 8px 1rem 1rem;
+    font-size: 36px;
+}
+
+.slideExplanation {
+    padding: 1rem;
+    padding-bottom: 2rem;
+    font-size: 1rem;
+    text-align: justify;
+}
+
+.infoSlideVideo video {
+    width: 400px;
+    filter: drop-shadow(2px 4px 6px #44444444);
+    border: 0;
+    border-radius: 8px;
+}
+
+@media screen and (max-width: 30em) {
+    .infoSlide, .infoSlide:nth-child(odd) {
+        flex-direction: column;
+    }
+    
+    .infoSlideText {
+        width: 100%;
+    }
+    
+    .infoSlideVideo video {
+        width: 90%;
+    }
+    
+    .division img {
+        width: 325px;
+    }
+
+    .boxRotation, .circleRotation {
+        display: none;
+    }
+    
+    .secondSlide {
+        margin-top: 1rem;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    
+    .infoSlide, .infoSlide:nth-child(odd) {
+        flex-direction: column;
+    }
+    .secondSlide {
+        width: 80%;
+    }  
+    .infoSlideText {
+        width: 80%;
+    }  
+    .infoSlideVideo video {
+        width: 584px;
+    }
+    .firstSlide {
+        height: 85vh;
+        padding-bottom: 0;
+    }
+    .boxRotation, .circleRotation {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1130px) {
+    
+    .infoSlide, .infoSlide:nth-child(odd) {
+        flex-direction: column;
+    }
+    
+    .secondSlide {
+        width: 80%;
+    }
+    .infoSlideVideo video {
+        width: 584px;
+    }
+    .infoSlideText {
+        width: 80%;
+    }  
+}
