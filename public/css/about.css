@@ -205,19 +205,19 @@ a {
     color: #0076ffe6;
 }
 
-.team, .techUsed, .webAPI, .documentation {
+.techUsed, .webAPI, .documentation {
     display: flex;
     flex-direction: column;
     gap: 3px;
     padding: 1rem;
 }
 
-.team span:nth-child(1), .techUsed span:nth-child(1), .webAPI span:nth-child(1), .documentation span:nth-child(1) {
+.techUsed span:nth-child(1), .webAPI span:nth-child(1), .documentation span:nth-child(1) {
     font-size: 1.1rem;
     font-weight: 600;
 }
 
-.team span, .techUsed span, .webAPI span, .documentation span {
+.techUsed span, .webAPI span, .documentation span {
     padding-bottom: 11px;
 }
 
